@@ -1,7 +1,11 @@
-module.exports = {
-  preStart: "the game has yet to be started",
-  begOfTurn: "begining of player's turn",
-  oneCardSelected: "one card had been selected",
-  secondCardSelected: "second card has been selected",
-  gameOver: "the game is over"
+var defaultState = {
+  difficultyLevel: 'easy',
+  deck:            [],
+  cardsFlipped:    0,
+  firstCard:       null,
+  secondCard:      null,
+  matches:         0,
+  isWin:           false
 }
+
+module.exports = defaultState

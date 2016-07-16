@@ -9,7 +9,6 @@
          font-family: 'Arvo', serif;
          background-image: url('img/felt.bmp');
      }
-
      .landing{
          display: none;
          position: fixed;
@@ -29,6 +28,7 @@
          font-size: 50px;
          top: -70px;
          transition: top 2s;
+         -webkit-transition: top 2s;
      }
      .start-link {
          opacity: 0.0;
@@ -38,7 +38,7 @@
          font-size: 30px;
          top: 300px;
          transition: opacity 1s;
-         cursor: pointer;
+         -webkit-transition: opacity 1s;
      }
      div.landing h3{
          position: relative;
@@ -53,15 +53,132 @@
          left:35%;
          height: 400px;
          width: 400px;
+         animation: MenuAnimation 0.3s;
+     }
+     .clock {
+         position: fixed;
+         color: white;
+         background-color: rgba(0,0,0,0.6);
+         border-left: 1px solid #FFFFFF;
+         border-top: 1px solid #FFFFFF;
+         border-radius: 10px 0px 0px 0px;
+         width: 200px;
+         height: 200px;
+         bottom: 0%;
+         right: 0%;
+         text-align: center;
+         z-index: 999;
+         transition: height 0.3s;
      }
      div.menu h4{
          color: white;
+         font-size: 30px;
      }
-
-     div.menu label{
+     div.menu > label {
          display: block;
+         position: relative;
+         left: 36%;
+         font-size: 26px;
+         margin-top: 25px;
+         color: #fafafa;
+         cursor: pointer;
+         /*text-shadow: 0px 0px 0px white;
+            text-decoration: none;*
+            transition: text-shadow text-decoration 0.5s;*/
+     }
+     div.menu > label:nth-of-type(1){
+         margin-top: 60px;
+     }
+     div.menu input[type=radio]{
+         display: none;
+     }
+     .inactive-start-game-button {
+         position: relative;
+         background-color: rgba(255,255,255,0.3);
+         font-size: 25px;
+         left: 60%;
+         top: 75px;
+         border-radius: 10px;
+         border: 1px solid #FFFFFF;
+     }
+     .active-start-game-button {
+         cursor: pointer;
+         position: relative;
+         background-color: rgba(255,255,255,0.3);
+         font-size: 25px;
+         left: 60%;
+         top: 75px;
+         color: #fafafa;
+         border-radius: 10px;
+         border: 1px solid #FFFFFF;
+         transition: color 0.5s, background-color 0.5s;
+     }
+     .active-start-game-button:hover {
+         background-color: rgba(255,255,255,0.7);
+         color: #1F1F1F;
+     }
+     @keyframes MenuAnimation{
+         0%{
+             transform: scale(0.0001);
+         }
+         100%{
+             transform: scale(1);
+         }
+     }
+     @keyframes ExitAnimation{
+         0%{
+             transform: scale(1);
+         }
+         100%{
+             transform: scale(0.0001);
+         }
+     }
+     .animated-exit{
+         animation: ExitAnimation 0.3s;
+     }
+     .card{
+         background-color: white;
+         border-radius: 5px;
+         margin-right: 10px;
+         margin-bottom: 5px;
+         -moz-transform: scaleX(-1);
+         -o-transform: scaleX(-1);
+         -webkit-transform: scaleX(-1);
+         transform: scaleX(-1);
+         filter: FlipH;
+         -ms-filter: "FlipH";
+     }
+     @keyframes FirstHalfFlip{
+         0%{
+             transform: rotateY(0);
+         }
+         100%{
+             transform: rotateY(90deg);
+         }
      }
 
+     .first-half-flip{
+         animation: FirstHalfFlip 0.5s;
+     }
+     @keyframes SecondHalfFlip{
+         0%{
+             transform: rotateY(90deg);
+         }
+         100%{
+             transform: rotateY(180deg);
+         }
+     }
+     .second-half-flip{
+         animation: SecondHalfFlip 0.5s;
+     }
+     .game-over{
+         background-color: rgba(0,0,0,0);
+         color: white;
+         position: fixed;
+         z-index: 1000;
+         width: 100%;
+         height: 100%;
+     }
     </style>
   </head>
   <body>

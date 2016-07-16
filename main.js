@@ -4,5 +4,3 @@ var gameState        = require('./src/game-state'),
     landingAnimation = require('./src/landing-animation')
 
 landingAnimation()
-
-console.log(gameState)
